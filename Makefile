@@ -1,5 +1,6 @@
 DIRSRC := js/
 DIRBUILD := build/
+DIRDIST := dist/
 DIR_NODE:= node_modules/
 DIR_BOWER := bower_components/
 SHELL := /bin/bash
@@ -34,6 +35,13 @@ add-dep-develop:
 
 dist-prod:
 	#I prefer use grunt requirejs
+	#
+	#rm -f $(DIRDIST/htmlmaptool.js)
+	@echo $(shell ls -la ${DIRDIST}*.js)
+	@echo $(shell rm -f ${DIRDIST}htmlmaptool.js)
+	@echo '------------------------------------------------------'
+	@echo '>>> Please wait generating dist'
+	@echo '------------------------------------------------------'
 	grunt requirejs:compile
 
 	#./node_modules/requirejs/bin/r.js -o build-production.js

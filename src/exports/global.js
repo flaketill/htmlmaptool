@@ -30,4 +30,6 @@ define( [
   			return getGlobal();
 		};
 
+	//}).call(this);//que tendrá this quse pasa antes que los demás argumentos.
+
 } );

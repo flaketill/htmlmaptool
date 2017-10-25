@@ -31,13 +31,15 @@ module.exports = function(grunt) {
           //wrapShim: true,
           //dir: 'dist/',
           //keepBuildDir: true,
-          include: ['exports/global',
-          'exports/amd',
+          include: [
           'core',
-          'htmlmaptool',
-          'var/support',   
+          'exports/amd',          
+          'var/support',
+          'core/support',
           'common',
-          'utils/sessionstorage'
+          'utils/sessionstorage',          
+          'exports/global',
+          'htmlmaptool'
           ],
           exclude: ['test'],
           out: 'dist/<%= pkg.name %>.js',
