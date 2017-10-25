@@ -9,6 +9,7 @@ define([
 	'common',
 	'htmlmaptool'
 ], function ($, _, Backbone, common, htmlmaptool) {
+
 	'use strict';
 
 	// Our overall **AppView** is the top-level piece of UI.
@@ -23,9 +24,15 @@ define([
 		initialize: function () {
 			console.log("testing Backbone view");
 
-			var htmlmaptool = htmlmaptool.version;
+			var htmlmaptool_version = htmlmaptool.version;
 
 			console.info(htmlmaptool);
+
+			console.info(htmlmaptool_version);
+
+			htmlmaptool.test();
+
+			console.info(htmlmaptool.name_app);
 		},
 
 		// Re-rendering the App just means refreshing the statistics -- the rest

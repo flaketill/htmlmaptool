@@ -13,19 +13,26 @@ require.config({
 		backboneLocalstorage: '../node_modules/backbone.localstorage/backbone.localStorage',
 		text: '../node_modules/requirejs-text/text',
 		common: '../common',
-		htmlmaptool: '../node_modules/htmlmaptool/dist/htmlmaptool'
+		htmlmaptool: '../node_modules/htmlmaptool/dist/htmlmaptool',
+		app: 'views/app'
 	},
 	shim: {
 		requirejs: {
 			exports: 'requirejs'
+		},
+		htmlmaptool: {
+			exports: 'htmlmaptool'
+		},			
+		app: {
+			deps: ['common','htmlmaptool']
 		}
-	},
-	deps: ['views/app']
+	}
+	//deps: ['views/app']
 });
 
 require([
 	'backbone',
-	'views/app',
+	'app',
 	//'routers/router'
 //], function (Backbone, AppView, Workspace) {
 ], function (Backbone, AppView) {
