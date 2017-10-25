@@ -1,0 +1,1 @@
+(function(windows){//module pattern  encapsulated module, that cannot conflict with any other modules

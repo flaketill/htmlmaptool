@@ -1,5 +1,7 @@
 // <![CDATA[ 
 
+/*global require*/
+
 /*~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
 	Copyright (c) 2017 htmlmaptool for javascript
 	AUTHOR: Ing. Armando Ibarra
@@ -17,10 +19,17 @@
 ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~*/
 
 define( [
-	"./core"
+	"core"
+	//"test",
+	//"amd",
+	//"global",
 ], function( htmlmaptool ) {
 
-	//"use strict";
+	"use strict";
+
+	//var htmlmaptool="jaja";
+	console.log(htmlmaptool);
+	
 	return htmlmaptool;
 
 } );

@@ -26,23 +26,29 @@ module.exports = function(grunt) {
       compile: { // <<== nest the options in this.
         options: {
           baseUrl: 'src/',
+          //optimize: 'none',
           //mainConfigFile: 'main.js',          
           //name: '<%= pkg.name %>.js',
           //wrapShim: true,
           //dir: 'dist/',
-          //keepBuildDir: true,
+          //keepBuildDir: true,          
           include: [
           'core',
-          'exports/amd',          
-          'var/support',
-          'core/support',
-          'common',
-          'utils/sessionstorage',          
-          'exports/global',
+          //'exports/amd',
+          //'var/support',
+          //'core/support',
+          //'common',
+          //'utils/sessionstorage',          
+          //'exports/global',
           'htmlmaptool'
           ],
           exclude: ['test'],
           out: 'dist/<%= pkg.name %>.js',
+          wrap: true,
+          /*wrap: {
+            startFile: 'src/start.frag',
+            endFile: 'src/end.frag'
+          },*/
           'onModuleBundleComplete': function (data) {
 
             //using almond plugin to generate deliverable

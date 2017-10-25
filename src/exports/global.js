@@ -1,13 +1,16 @@
 /* jshint laxcomma: true */
 
 define( [
-	"../core"
+	"core"
 ], function( htmlmaptool ) {
 
 	//"use strict";
 	// Map over htmlmaptool in case of overwrite
 	var _htmlmaptool = window.htmlmaptool;
 
+	console.log("4. Global");
+
+		/*
 		htmlmaptool.noConflict = function( deep ) 
 		{
 		
@@ -29,6 +32,7 @@ define( [
   			}
   			return getGlobal();
 		};
+		*/
 
 	//}).call(this);//que tendrá this quse pasa antes que los demás argumentos.
 
