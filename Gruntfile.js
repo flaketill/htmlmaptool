@@ -25,31 +25,31 @@ module.exports = function(grunt) {
     requirejs: {
       compile: { // <<== nest the options in this.
         options: {
-          baseUrl: 'src/',
-          //optimize: 'none',
-          //mainConfigFile: 'main.js',          
+          baseUrl: 'src/',   
           //name: '<%= pkg.name %>.js',
-          //wrapShim: true,
+          wrapShim: true,
           //dir: 'dist/',
           //keepBuildDir: true,          
           /*include: [
-          'core',
+          'htmlmaptool',
+          'core'
           //'exports/amd',
+          //'exports/global',
+          //'core/test',
           //'var/support',
           //'core/support',
           //'common',
-          //'utils/sessionstorage',          
-          //'exports/global',
-          'htmlmaptool'
-          ],
-          exclude: ['test'],*/
+          //'utils/sessionstorage',
+          
+          ],*/
+          //exclude: ['test'],
           //mainConfigFile: "./main.js",
           //name: "almond", //using almond plugin to generate deliverable
-          include: ["htmlmaptool"],
+          include: ['core','exports/amd','exports/global','core/test','htmlmaptool'],
           out: 'dist/<%= pkg.name %>.js',
           optimize: 'none', // none / uglify2
           // Include dependencies loaded with require
-          findNestedDependencies: true,
+          //findNestedDependencies: true,
           // Avoid inserting define() placeholder
           //skipModuleInsertion: true,
           // Avoid breaking semicolons inserted by r.js

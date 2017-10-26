@@ -1,4 +1,4 @@
-;(function() {
+
 /*!
  * Htmlmaptool JavaScript Library v0.0.1
  * http://github.com/flaketill
@@ -12,9 +12,9 @@
  * Released under the MIT license
  * https://jquery.org/license
  *
- * Date: 2017-03-20T18:59Z
+ * Date: 2017-10-26T19:30Z
  */
-var core, htmlmaptool;
+var core, exports_amd, htmlmaptool, exports_global, core_test;
 (function (global, factory) {
   //module pattern  encapsulated module, that cannot conflict with any other modules
   'use strict';
@@ -29,18 +29,18 @@ var core, htmlmaptool;
     factory(global);
   }  // Pass this if window is not defined yet
 }(typeof window !== 'undefined' ? window : this, function (window, noGlobal) {
-  return htmlmaptool;
   core = function (htmlmaptool) {
     //(function(windows){//module pattern  encapsulated module, that cannot conflict with any other modules
     //"use strict";
+    //(function(windows){
     /**
-    * htmlmaptool
-    * ------------
-    * Version : 0.0.1
-    * Website : NULL
-    * Repo    : github.com/flaketill/htmlmaptool
-    * Author  : Armando Ibarra (@erpmtics)
-    */
+     * htmlmaptool
+     * ------------
+     * Version : 0.0.1
+     * Website : NULL
+     * Repo    : github.com/flaketill/htmlmaptool
+     * Author  : Armando Ibarra (@erpmtics)
+     */
     //this --scope
     var that = this,
       //Save reference to instance.
@@ -50,10 +50,10 @@ var core, htmlmaptool;
     //------------------------------------------------------------
     //
     /**
-    * Top level namespace for Jasmine, a lightweight JavaScript BDD/spec/testing framework
-    * 
-    * @namespace
-    */
+     * Top level namespace for Jasmine, a lightweight JavaScript BDD/spec/testing framework
+     * 
+     * @namespace
+     */
     var htmlmaptool;
     //Nested namespaces
     if (typeof exports !== 'undefined') {
@@ -66,25 +66,90 @@ var core, htmlmaptool;
       htmlmaptool = that.htmlmaptool || {};  //Nested namespaces
     }
     /**
-    * Configuration
-    * -------------
-     */
+    	* Configuration
+    	* -------------
+      */
     htmlmaptool.version = '0.0.1';
     htmlmaptool.name_app = 'htmlmaptool';
     /**
-    * Show diagnostic messages in the console if set to true
-    *
-    */
+     * Show diagnostic messages in the console if set to true
+     *
+     */
+    // Initial Setup
+    // -------------
     htmlmaptool.VERBOSE = false;
     console.log('1. Core');
+    return htmlmaptool;  //}).call(this);
+  }();
+  exports_amd = function (htmlmaptool) {
+    //"use strict";
+    // Register as a named AMD module, since htmlmaptool can be concatenated with other
+    // files that may use define, but not via a proper concatenation script that
+    // understands anonymous AMD modules.
+    // A named AMD is safest and most robust way to register. 
+    // Note that for maximum portability see:
+    // https://github.com/jrburke/requirejs/wiki/Updating-existing-libraries#wiki-anon
+    // AMD define happens at the end for compatibility with AMD loaders
+    // that don't enforce next-turn semantics on modules.
+    /**
+    * Module Wrapper
+    * --------------
+     */
+    if (true) {
+      htmlmaptool = function () {
+        return htmlmaptool;
+      }();
+    }
+    console.log('2. AMD');  // for CommonJS enviroments, export everything
+                            /*if ( typeof exports !== "undefined" || typeof require !== "undefined" ) 
+                            {
+                            		extend(exports, htmlmaptool);
+                            }*/
+  }(core);
+  exports_global = function (htmlmaptool) {
+    //"use strict";
+    // Map over htmlmaptool in case of overwrite
+    var _htmlmaptool = window.htmlmaptool;
+    console.log('3. Global');  /*
+                               	htmlmaptool.noConflict = function( deep ) 
+                               	{
+                               		
+                               		if ( window.htmlmaptool === htmlmaptool) {
+                               			window._htmlmaptool = _htmlmaptool;
+                               		}
+                               
+                               		if ( deep && window.htmlmaptool === htmlmaptool ) {
+                               			window.htmlmaptool = _htmlmaptool;
+                               		}
+                               
+                               		return htmlmaptool;
+                               	};*/
+                               /*
+                               htmlmaptool.getGlobal = function() 
+                               {
+                               	function getGlobal() {
+                               		return this;
+                                		}
+                                		return getGlobal();
+                                	};*/
+                               //}).call(this);//que tendrá this quse pasa antes que los demás argumentos.
+  }();
+  core_test = function (htmlmaptool) {
+    console.log('4. Test');
+    //console.log(core);
+    console.log(htmlmaptool);
+    //var htmlmaptool = core.htmlmaptool;
+    //console.log(htmlmaptool.version);
+    htmlmaptool.test = function () {
+      console.log('[info] - core/test --> test function');  //return this;
+    };
+    //return this;
     return htmlmaptool;
   }(core);
   htmlmaptool = function (htmlmaptool) {
-    (function () {
-      //var htmlmaptool="jaja";
-      console.log(htmlmaptool);
-      return htmlmaptool;
-    }.call(this));
+    //(function(windows, htmlmaptool){
+    console.log(htmlmaptool);
+    return htmlmaptool;  //}).call(this);
   }(core);
   htmlmaptool = function () {
     return htmlmaptool;
@@ -95,4 +160,3 @@ var core, htmlmaptool;
   //return htmlmaptool;
   return htmlmaptool;  //}).call(this);
 }));
-}());
