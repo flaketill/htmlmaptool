@@ -1,4 +1,9 @@
 /* global Symbol */
+
+/* jshint undef: true, unused: true */
+
+
+
 // Defining this global in .eslintrc.json would create a danger of using the global
 // unguarded in another place, it seems safer to define global only for this module
 // WHY AMD? Who use AMD? -- http://requirejs.org/docs/whyamd.html
@@ -36,22 +41,22 @@ define( 'core', [
 
 	var htmlmaptool_webapp = 
 		{
-			models: {}
-			,views: {}
-			,controllers: {}
-			,routers:{}
-			,utils: {}
-			,dao: {}
+			models: {},
+			views: {},
+			controllers: {},
+			routers:{},
+			utils: {},
+			dao: {}
 		};
 
     htmlmaptool_webapp.version = 
     {
-    	major: 0
-    	, minor: 2
-    	, patch: 2
-    	, flag: ""
-    	,revision: Number("$Rev: 01 $".match(/[0-9]+/)[0])
-    	,toString: function() 
+    	major: 0,
+    	minor: 2,
+    	patch: 2,
+    	flag: "",
+    	revision: Number("$Rev: 01 $".match(/[0-9]+/)[0]),
+    	toString: function() 
     	{
 
     	}

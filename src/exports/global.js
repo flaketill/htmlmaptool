@@ -1,10 +1,12 @@
+/* jshint laxcomma: true */
+
 define( [
 	"../core"
 ], function( htmlmaptool ) {
 
 	//"use strict";
 	// Map over htmlmaptool in case of overwrite
-	var _htmlmaptool = window.htmlmaptool,
+	var _htmlmaptool = window.htmlmaptool;
 
 		htmlmaptool.noConflict = function( deep ) 
 		{

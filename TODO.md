@@ -14,6 +14,7 @@ A todo list
 - [ ]   http://jshint.com/
 - [ ]  http://jstherightway.org/
 - [ ]  Read and try to implement https://github.com/hueitan/javascript-sdk-design 
+- [ ]  https://babeljs.io/
 
 ###  Documentation
 - [ ]  API, Tutorials and Examples

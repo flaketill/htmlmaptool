@@ -12,8 +12,8 @@ define( 'sesionstorage', [
 	htmlmaptool.core.sessionstorage = ({
 		config: function (options){
 			console.log("test"); 
-		}
-		,initialize: function()
+		},
+		initialize: function()
 		{
 
 			// Break if no JSON support was found
@@ -30,21 +30,21 @@ define( 'sesionstorage', [
 			}else{
 				console.log("LocalStorage No soportado o no habilitado");
 			}
-		}
-		,check: function()
+		},
+		check: function()
 		{
 			if(typeof(Storage)!=="undefined"){
 				return true;	    
 			}else{
 				 return false;
 			}
-		}
-		,save: function(id,object)
+		},
+		save: function(id,object)
 		{
 			var object_x = JSON.stringify(object);
 			localStorage.setItem(id,object_x);
-		}
-		,get: function(id,object)
+		},
+		get: function(id,object)
 		{
 
 			try{
@@ -70,17 +70,17 @@ define( 'sesionstorage', [
 				return false;
 			}
 
-		}
-		,delete: function(id,object)
+		},
+		delete: function(id,object)
 		{
 			sessionStorage.removeItem(id);
-		}
-		,get_item_key: function(n)
+		},
+		get_item_key: function(n)
 		{
 			// Retrieving an Item Key
 			sessionStorage.key(n);
-		}
-		,clear_all: function()
+		},
+		clear_all: function()
 		{
 			// Clearing the Datastore
 			sessionStorage.clear();

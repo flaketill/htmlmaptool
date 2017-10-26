@@ -23,8 +23,8 @@ define( [
 	//"use strict";
 
 	//this --scope
-	var that =this //Save reference to instance.
-		, core_deletedIds = [],
+	var that =this, //Save reference to instance.
+		core_deletedIds = [],
 		previusHtmlmaptool = that.htmlmaptool;
 
 	//============================================================
@@ -77,12 +77,12 @@ define( [
 			results.push(callback.call(this, this[i], i));
 		}
     	return results;
-	};
+	}
 
-	htmlmaptool.prototype.forEach(callback) {
+	htmlmaptool.prototype.forEach = function (callback) {
 		this.map(callback);
 		return this;
-	};
+	}
 
 	//API Design - Make a module
 	var htmlmaptool = 
@@ -117,7 +117,7 @@ define( [
             }
             return el;
         }
-    };
+    }
 
     //Check LocalStorage Writable
     var testCanLocalStorage = function() {
@@ -129,7 +129,7 @@ define( [
     	} catch (e) {
     		return false;
     	}
-    };
+    }
 
     //Check SessionStorage Writable
     var checkCanSessionStorage = function() {
@@ -143,23 +143,6 @@ define( [
     	}
     }
 
-    var modules = {} // private record of module data
-    	,order   = []; // private record of module load order
-
-    // modules are functions with additional information
-    function module(name,imports,mod) {
-	 
-	    // record module information
-	    window.console.log('loading module '+name);
-	    modules[name] = {name:name, imports: imports, mod: mod};
-	 
-	    // just execute module code right away, no imports/exports yet
-	    mod();
-	}
-	 
-	// export module wrapper
-	window.module = module;
-
 	//Utils
 	htmlmaptool.utils = htmlmaptool.utils || {};
 
@@ -170,9 +153,6 @@ define( [
 			var defaultOptions = 
 	    		{
 	    			base_url: '/js/templates/'
-					,foo: 'foo-default'
-					,bar: 'bar-default'
-					//method = method || "GET";
 				};
 
 			if (typeof options == 'object') 
