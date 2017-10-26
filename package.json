@@ -6,7 +6,9 @@
   "license": "ISC",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm install && grunt",
+    "start": "grunt watch",
+    "test": "grunt && grunt test"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,7 @@
     "babel-cli": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "bower": "^1.8.2",
     "eslint-config-google": "^0.9.1",
     "grunt-cli": "^1.2.0",
     "grunt-contrib-concat": "^1.0.1",
@@ -44,10 +47,5 @@
   },
   "dependencies": {
     "grunt": "^1.0.1"
-  },
-  "scripts": {
-    "build": "npm install && grunt",
-    "start": "grunt watch",
-    "test": "grunt && grunt test"
   }
 }
