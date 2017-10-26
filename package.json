@@ -2,21 +2,56 @@
   "name": "htmlmaptool",
   "version": "0.0.1",
   "description": "Html map tool on javascript",
+  "homepage": "https://github.com/flaketill/htmlmaptool#readme",
+  "license": "ISC",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm install && grunt",
+    "start": "grunt watch",
+    "test": "grunt && grunt test"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/flaketill/htmlmaptool.git"
   },
+  "bugs": {
+    "url": "https://github.com/flaketill/htmlmaptool/issues"
+  },
   "keywords": [
     "javascript"
   ],
   "author": "Armando Ibarra",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/flaketill/htmlmaptool/issues"
+  "devDependencies": {
+    "amdclean": "^2.7.0",
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "bower": "^1.8.2",
+    "eslint-config-google": "^0.9.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-internal": "^1.3.0",
+    "grunt-contrib-nodeunit": "^1.0.0",
+    "grunt-contrib-qunit": "^2.0.0",
+    "grunt-contrib-requirejs": "^1.0.0",
+    "grunt-contrib-uglify": "^3.1.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-eslint": "^20.1.0",
+    "grunt-jsonlint": "^1.1.0",
+    "grunt-validation": "^0.9.0",
+    "jshint": "^2.9.5",
+    "load-grunt-tasks": "^3.5.2",
+    "qunitjs": "^2.4.1",
+    "requirejs": "^2.3.5",
+    "rjs-build-analysis": "0.0.3",
+    "strip-json-comments": "^2.0.1",
+    "uglify-js": "^3.1.5"
   },
-  "homepage": "https://github.com/flaketill/htmlmaptool#readme"
+  "peerDependencies": {
+    "eslint": ">=4.1.1"
+  },
+  "dependencies": {
+    "grunt": "^1.0.1"
+  }
 }
