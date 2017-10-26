@@ -16,7 +16,7 @@
 define([
 	"htmlmaptool",
 	//"amd",
-	//"test"
+	"test"
 //], function( support, common ) {
 ], function( htmlmaptool ) {
 

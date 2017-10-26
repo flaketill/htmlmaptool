@@ -32,7 +32,7 @@ module.exports = function(grunt) {
           //wrapShim: true,
           //dir: 'dist/',
           //keepBuildDir: true,          
-          include: [
+          /*include: [
           'core',
           //'exports/amd',
           //'var/support',
@@ -42,13 +42,18 @@ module.exports = function(grunt) {
           //'exports/global',
           'htmlmaptool'
           ],
-          exclude: ['test'],
-          out: 'dist/<%= pkg.name %>.js',
+          exclude: ['test'],*/
+          mainConfigFile: "./main.js",
+          name: "almond", //using almond plugin to generate deliverable
+          include: ["htmlmaptool"],
+          //out: 'dist/<%= pkg.name %>.js',
           wrap: true,
-          /*wrap: {
+          wrap: {
             startFile: 'src/start.frag',
             endFile: 'src/end.frag'
-          },*/
+          },
+          optimize: 'none', // none / uglify2
+          "out": "dist/FxCalculator.js",
           'onModuleBundleComplete': function (data) {
 
             //using almond plugin to generate deliverable

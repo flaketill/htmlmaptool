@@ -34,13 +34,13 @@ require.config({
 		core: {
 			deps: ['amd','support','support1','common','sessionstorage','global','htmlmaptool']
 		}*/
-	}
+	},
 	//deps: ['src/core']
-	//deps: ['src/htmlmaptool']
+	deps: ['htmlmaptool']
 });
 
 require([
-	'htmlmaptool',
+	//'htmlmaptool',
 	/*'core',
 	'amd',
 	'test',

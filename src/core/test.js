@@ -1,8 +1,8 @@
 /*global require*/
 
 define( [
-	'core',
-	'htmlmaptool'
+	'core'
+	//'htmlmaptool'
 ], function( core, htmlmaptool ) {
 
 
@@ -23,5 +23,6 @@ define( [
 	};
 
 	*/
+	return this;
 
 } );	
