@@ -8,7 +8,7 @@
   		<meta name="description" content="Javascript, Jquery, Backbone, CSS 2.1 y 3, XHTML Strict v1.0, Backbone, requirejs " />
   		<meta name="author" content="Ing. Armando Ibarra" />
   		<meta name="keywords" content="Humans txt, Development" /> 
-  		<meta name="title" content="Aplicaci&oacute;n Web by flaketill" /> 
+  		<meta name="title" content="Aplicaci&oacute;n Web by flaketill" />  		
 
 	</head>
 	<body>
@@ -17,17 +17,21 @@
 		 
 		<h1>Test with Backbone.js + RequireJS + htmlmaptool • MVC with Javascirpt</h1>
 
-		<!--<script type="text/javascript" data-main="main" src="node_modules/requirejs/require.js"></script>-->
+		<!--RequireJs to load libs-->
+  		<!--<script type="text/javascript" data-main="main" src="node_modules/requirejs/require.js"></script>-->
+
+		<!-- load Htmlmaptool lib-->
 		<script type="text/javascript" src="dist/htmlmaptool.js"></script>
 		<script type="text/javascript">
 			// Initialize the lib
 			
-			console.log("[info] - index.html --> Initialize Javascirpt Library");
-			console.log("[info] - index.html --> htmlmaptool: " + typeof htmlmaptool);
-			console.log("[info] - index.html --> The version are: " + htmlmaptool.version);
+			console.log("[info] - index.html -+ Initialize Javascirpt Library");
+			console.log("[info] - index.html -+ htmlmaptool: " + typeof htmlmaptool);
+			console.log("[info] - index.html -+ The version are: " + htmlmaptool.version);
 			
 			var app = htmlmaptool;
 			app.test();
+			app.test2();
 
 		</script>
 

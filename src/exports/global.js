@@ -1,7 +1,7 @@
 /*global require*/
 /* jshint laxcomma: true */
 define( [
-	//"core",
+	"core",
 ], function( htmlmaptool ) {
 
 	//"use strict";
