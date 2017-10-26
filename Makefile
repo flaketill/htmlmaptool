@@ -3,7 +3,7 @@ DIRBUILD := build/
 DIR_NODE:= node_modules/
 DIR_BOWER := bower_components/
 SHELL := /bin/bash
-files := $(shell cat "dependencies_arhlinux.txt")
+#files := $(shell cat "dependencies_arhlinux.txt")
 
 #echo '"laxcomma": true' >> ~/.jshintrc
 .PHONY: all clean
@@ -16,6 +16,8 @@ info:
 	@echo '>>> Using mode $(mode)'
 	@echo '    (Please, call "make" with [mode=debug|release])  '
 	@echo '------------------------------------------------------'
+
+	grunt -version
 
 dirs:
 	mkdir -p $(DIRBUILD)
@@ -30,9 +32,9 @@ add-dep-develop:
 	#pm install grunt-contrib-uglify --save-dev
 	npm install --save-dev fsevents
 
-dist:
+dist-prod:
 	#I prefer use grunt requirejs
-	grunt requirejs
+	grunt requirejs:compile
 
 	#./node_modules/requirejs/bin/r.js -o build-production.js
 	#node ../../r.js -o name=main out=main-built.js baseUrl=.

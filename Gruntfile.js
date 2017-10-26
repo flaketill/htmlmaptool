@@ -11,31 +11,48 @@ module.exports = function(grunt) {
         dest: 'dist/<%= pkg.name %>.js'
       }
     },
-    // Before generating any new files, remove any previously-created files.
-    clean: {
-      test: ['tmp']
+    uglify: {
+      options: {
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+      },
+      dist: {
+        files: {
+          'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+        }
+      }
     },
-    //require js configuration
+     //require js configuration
     requirejs: {
       compile: { // <<== nest the options in this.
         options: {
           baseUrl: 'src/',
-          mainConfigFile: 'main.js',
+          //mainConfigFile: 'main.js',          
+          //name: '<%= pkg.name %>.js',
+          //wrapShim: true,
+          //dir: 'dist/',
+          //keepBuildDir: true,
+          include: ['exports/global',
+          'exports/amd',
+          'core',
+          'htmlmaptool',
+          'var/support',   
+          'common',
+          'utils/sessionstorage'
+          ],
+          exclude: ['test'],
           out: 'dist/<%= pkg.name %>.js',
-          name: '<%= pkg.name %>.js',
-          wrapShim: true,
-          dir: 'dist/',
-          keepBuildDir: true,
-          paths: {
-            global: ['src/exports/global'],
-            amd: ['src/exports/amd'],
-            core: ['core'],
-            htmlmaptool: ['htmlmaptool']
-            support: ['src/var/support'],   
-            common: ['common'],
-            sessionstorage: ['src/utils/sessionstorage'],
+          'onModuleBundleComplete': function (data) {
+
+            //using almond plugin to generate deliverable
+
+            var fs = require('fs'),
+              amdclean = require('amdclean'),
+              outputFile = data.path;
+ 
+            fs.writeFileSync(outputFile, amdclean.clean({
+              'filePath': outputFile
+            }));
           },
-          exclude: ['config'],
           done: function(done, output) {
             var duplicates = require('rjs-build-analysis').duplicates(output);
 
@@ -50,16 +67,6 @@ module.exports = function(grunt) {
             grunt.log.warn(err);
             done();
           }          
-        }
-      }
-    },
-    uglify: {
-      options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
-      },
-      dist: {
-        files: {
-          'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
         }
       }
     },
@@ -95,22 +102,16 @@ module.exports = function(grunt) {
   // Load grunt tasks from NPM packages
   require( "load-grunt-tasks" )( grunt );
 
-  // Actually load this plugin's task(s).
-  // grunt.loadTasks('tasks');
-
   // grunt.loadNpmTasks('grunt-contrib-uglify');
-  // grunt.loadNpmTasks('grunt-contrib-jshint');
+
+  //This plugint fail: grunt.loadNpmTasks('grunt-contrib-jshint');
   // grunt.loadNpmTasks('grunt-contrib-qunit');
   // grunt.loadNpmTasks('grunt-contrib-watch');
   // grunt.loadNpmTasks('grunt-contrib-concat');
-  //grunt.loadNpmTasks('grunt-contrib-requirejs');
 
-  // Whenever the "test" task is run, first clean the "tmp" dir, then run this
-  // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['jshint', 'qunit']);
-  //grunt.registerTask('test', ['clean','jshint', 'qunit']);
-  // By default, lint and run all tests.
-  //grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify', 'requirejs:compile']);
-  grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
+  grunt.registerTask('test', ['qunit']);
+  grunt.registerTask('build', ['requirejs:compile']);
+
+  grunt.registerTask('default', ['qunit', 'concat', 'uglify', 'build']);
 
 };
