@@ -6,7 +6,8 @@ A todo list
 
 ### General
 
-- [ ] Put all AMD modules in "src/" in strict mode
+- [X] Put all AMD modules in "src/" in strict mode
+- [X] Gruntfile.js
 - [ ] bower.json
 - [ ] gulpfile.js or Jasmine Spec Runner or 
 - [ ] use coffee
@@ -22,16 +23,16 @@ A todo list
 - [ ]  Contribution
 
 ###  Patterns
-- [ ] 
+- [ ]  NULL
 
 ###  Testing Tools
-- [ ] 
+- [ ]  NULL
 
 ###   Frameworks
-- [ ] 
+- [ ]  NULL
 
 ### Scope and Goals
-- [ ] 
+- [ ]  NULL
 
 ### HELPERS
 - [ ] http://yeoman.io/
@@ -52,11 +53,12 @@ A todo list
 - [ ] Getup 
 - [ ] Modulus
 - [ ] Nodejitsu   
+
 ### API Design
-- [ ] 
+- [ ]  NULL
 
 ### Flexibility and Customization
-- [ ] 
+- [ ]  NULL
 
 ### Module Loader Compatibility
 - [ ]  make the library UMD-compatible
@@ -75,4 +77,3 @@ A todo list
 - [ ] updating your version in package.json
 - [ ] npm
 - [ ] Bower
-- [ ] 
