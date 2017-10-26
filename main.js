@@ -5,7 +5,8 @@
 // Require.js allows us to configure shortcut alias
 require.config({
 	// The shim config allows us to configure dependencies for
-	// scripts that do not call define() to register a module			
+	// scripts that do not call define() to register a module		
+	baseUrl: 'src',
 	paths: 
 	{
 		//exports
@@ -16,7 +17,8 @@ require.config({
 		'support': ['src/var/support'],		
 		'common': ['common'],
 		'sessionstorage': ['src/utils/sessionstorage'],
-	}
+	},
+	deps: ['src/htmlmaptool']
 });
 
 require([

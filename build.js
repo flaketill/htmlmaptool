@@ -1,37 +1,8 @@
 ({
-    appDir: 'src',
-    baseUrl: 'src',
-    dir: './build',
-    modules: [
-        {
-            name: 'htmlmaptool',
-            out: "main-built.js"
-        }
-    ],
-    fileExclusionRegExp: /^(r|build)\.js$/,
-    optimizeCss: 'standard',
-    removeCombined: true,
+    baseUrl: ".",
     paths: {
-        'global': ['src/exports/global'],
-        'amd': ['src/exports/amd'],
-        'core': ['core'],
-        'htmlmaptool': ['htmlmaptool']
-        'support': ['src/var/support'],     
-        'common': ['common'],
-        'sessionstorage': ['src/utils/sessionstorage']
+         'htmlmaptool': ['src/htmlmaptool']
     },
-    shim: {
-        htmlmaptool: 
-        {
-            deps: [
-                'global',
-                'amd',
-                'core',
-                'support'
-                'common'
-                'sessionstorage'
-            ],
-            exports: 'htmlmaptool'
-        }
-    }
+    name: "main",
+    out: "main-built.js"
 })

@@ -31,7 +31,10 @@ add-dep-develop:
 	npm install --save-dev fsevents
 
 dist:
-	./node_modules/requirejs/bin/r.js -o build-production.js
+	#I prefer use grunt requirejs
+	grunt requirejs
+
+	#./node_modules/requirejs/bin/r.js -o build-production.js
 	#node ../../r.js -o name=main out=main-built.js baseUrl=.
 	#node ../../r.js -o baseUrl=. paths.requireLib=../../require name=main include=requireLib out=main-built.js
 	#node ../../r.js -o name=main out=main-built.js baseUrl=. paths.jquery=empty:
