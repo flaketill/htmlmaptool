@@ -3,7 +3,7 @@
 define( [
 	'core'
 	//'htmlmaptool'
-], function( core, htmlmaptool ) {
+], function( htmlmaptool ) {
 
 
 	console.log("2. Test");
@@ -23,6 +23,7 @@ define( [
 	};
 
 	*/
-	return this;
+	//return this;
+	return htmlmaptool;
 
 } );	

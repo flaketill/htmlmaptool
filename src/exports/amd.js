@@ -27,7 +27,7 @@ define( [
 		} );
 	}
 
-	console.log("3. Global");
+	console.log("3. AMD");
 	
 	// for CommonJS enviroments, export everything
 	/*if ( typeof exports !== "undefined" || typeof require !== "undefined" ) 

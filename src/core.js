@@ -14,9 +14,9 @@
 
 //Calling define with a dependency array and a factory function
 define([
-	"htmlmaptool",
+	"core",
 	//"amd",
-	"test"
+	//"test"
 //], function( support, common ) {
 ], function( htmlmaptool ) {
 
@@ -80,7 +80,5 @@ define([
 	console.log("1. Core");
 
 	return htmlmaptool;
-
-	//}).call(this);
 
 } );

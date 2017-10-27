@@ -13,19 +13,20 @@ require.config({
 	paths: 
 	{
 		//exports
+		'htmlmaptool': ['htmlmaptool'],
 		'core': ['core'],
 		'amd': ['exports/amd'],
+		'test': ['core/test'],
 		'support': ['var/support'],
 		'support1': ['core/support'],
 		'common': ['common'],
 		'sessionstorage': ['utils/sessionstorage'],
-		'global': ['exports/global'],
-		'htmlmaptool': ['htmlmaptool'],
-		'test': ['core/test'],
+		'global': ['exports/global'],			
 	},
 	shim: {
 		htmlmaptool: {
 			exports: 'htmlmaptool'
+			//deps: ['core','amd','test','global']
 		}
 		/*,
 		test: {
@@ -36,14 +37,18 @@ require.config({
 		}*/
 	},
 	//deps: ['src/core']
-	deps: ['htmlmaptool']
+	//deps: ['htmlmaptool']
 });
 
 require([
+	'core',
 	//'htmlmaptool',
+	//'core',
+	//'test',
+	//'amd',
+	//'global'
 	/*'core',
-	'amd',
-	'test',
+	
 	'support',
 	'support1',
 	'common',

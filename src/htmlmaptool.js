@@ -27,10 +27,14 @@ define( [
 
 	"use strict";
 
+	(function () {
+
 	//var htmlmaptool="jaja";
 	console.log(htmlmaptool);
 	
 	return htmlmaptool;
+
+	}).call(this);
 
 } );
 // ]]>

@@ -43,17 +43,24 @@ module.exports = function(grunt) {
           'htmlmaptool'
           ],
           exclude: ['test'],*/
-          mainConfigFile: "./main.js",
-          name: "almond", //using almond plugin to generate deliverable
+          //mainConfigFile: "./main.js",
+          //name: "almond", //using almond plugin to generate deliverable
           include: ["htmlmaptool"],
-          //out: 'dist/<%= pkg.name %>.js',
-          wrap: true,
+          out: 'dist/<%= pkg.name %>.js',
+          optimize: 'none', // none / uglify2
+          // Include dependencies loaded with require
+          findNestedDependencies: true,
+          // Avoid inserting define() placeholder
+          //skipModuleInsertion: true,
+          // Avoid breaking semicolons inserted by r.js
+          //skipSemiColonInsertion: true,
+          //wrap: true,
           wrap: {
             startFile: 'src/start.frag',
             endFile: 'src/end.frag'
           },
-          optimize: 'none', // none / uglify2
-          "out": "dist/FxCalculator.js",
+          //rawText: {},
+          //onBuildWrite: convert,
           'onModuleBundleComplete': function (data) {
 
             //using almond plugin to generate deliverable
@@ -63,6 +70,9 @@ module.exports = function(grunt) {
               outputFile = data.path;
  
             fs.writeFileSync(outputFile, amdclean.clean({
+              // Determines if certain aggressive file size optimization techniques 
+              // will be used to transform the soure code 
+              'aggressiveOptimizations': false,
               'filePath': outputFile
             }));
           },

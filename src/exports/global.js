@@ -8,8 +8,7 @@ define( [
 	// Map over htmlmaptool in case of overwrite
 	var _htmlmaptool = window.htmlmaptool;
 
-	console.log("4. Global");
-
+	console.log("3. Global");
 		/*
 		htmlmaptool.noConflict = function( deep ) 
 		{
