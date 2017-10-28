@@ -3,12 +3,13 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
+	'semantic',
 	//'collections/',
 	//'views/',
 	//'text!templates/example.html',
 	'common',
 	'htmlmaptool'
-], function ($, _, Backbone, common, htmlmaptool) {
+], function ($, _, Backbone, semantic, common, htmlmaptool) {
 
 	'use strict';
 
@@ -22,17 +23,32 @@ define([
 		// Compile our stats template
 		//template: _.template(statsTemplate),
 		initialize: function () {
+
 			console.log("testing Backbone view");
+			// Initialize the lib
+			if (htmlmaptool){ //the flag was not found, so the code has not run
 
-			var htmlmaptool_version = htmlmaptool.version;
+				var htmlmaptool_empty = _.isEmpty(htmlmaptool);
 
-			console.info(htmlmaptool);
+				if (htmlmaptool_empty) {
 
-			console.info(htmlmaptool_version);
+					console.log("[info] - views/app.js --> Fail please check dist file");
 
-			htmlmaptool.test();
+				}else{
 
-			console.info(htmlmaptool.name_app);
+					var htmlmaptool_version = htmlmaptool.version;
+					console.info(htmlmaptool_version);
+					htmlmaptool.test();			
+
+					console.log("[info] - views/app.js --> htmlmaptool::Initialize");
+					console.log("[info] - views/app.js --> htmlmaptool object: " + typeof htmlmaptool);
+					console.log("[info] - views/app.js --> The JavaScript library are:" + htmlmaptool.name_app);
+					console.log("[info] - views/app.js --> The version are:" + htmlmaptool.version);
+					
+					htmlmaptool.test();
+					htmlmaptool.test2();
+				}
+			}
 		},
 
 		// Re-rendering the App just means refreshing the statistics -- the rest

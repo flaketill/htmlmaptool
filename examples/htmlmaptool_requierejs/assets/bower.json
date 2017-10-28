@@ -1,0 +1,30 @@
+{
+  "name": "htmlmaptool",
+  "description": "Html map tool build on javascript to help map a image on html with clickable areas to html5",
+  "main": "htmlmaptool",
+  "authors": [
+    "Armando Ibarra <armandoibarra1@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "htmlmaptool",
+    "map",
+    "html5",
+    "image"
+  ],
+  "homepage": "https://github.com/flaketill/htmlmaptool",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "^3.2.1",
+    "htmlmaptool": "git://github.com/flaketill/htmlmaptool.git#release/0.0.1",
+    "jquery-ui": "^1.12.1",
+    "semantic": "semantic-ui#^2.2.13"
+  }
+}

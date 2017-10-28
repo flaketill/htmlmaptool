@@ -7,6 +7,7 @@ require.config({
 	baseUrl: "assets/js",
 	paths: {
 		jquery: '../node_modules/jquery/dist/jquery',
+		semantic: '../bower_components/semantic/dist/semantic.min',
 		'requirejs': ['../node_modules/requirejs/requirejs'],
 		underscore: '../node_modules/underscore/underscore',
 		backbone: '../node_modules/backbone/backbone',

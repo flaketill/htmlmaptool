@@ -9,6 +9,6 @@
     "underscore": "^1.7.0"
   },
   "devDependencies": {
-    "htmlmaptool": "git://github.com/flaketill/htmlmaptool.git#feature/gruntjs"
+    "htmlmaptool": "git://github.com/flaketill/htmlmaptool.git#release/0.0.1"
   }
 }
