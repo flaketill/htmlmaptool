@@ -9,10 +9,11 @@ SHELL := /bin/bash
 all: prepare
 
 prepare:
-
+	npm install
+	bower install
 	#npm install flaketill/htmlmaptool --save-dev
 	#npm install --save-dev jquery
-	npm install git://github.com/flaketill/htmlmaptool.git#feature\/gruntjs --save-dev
+	#npm install git://github.com/flaketill/htmlmaptool.git#feature\/gruntjs --save-dev
 
 clean:
 	rm -f *.log 
