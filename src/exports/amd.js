@@ -1,5 +1,8 @@
+/*global require*/
 define( [
-	"../core"
+	//"htmlmaptool",
+	//"test"
+	"core",
 ], function( htmlmaptool ) {
 
 	//"use strict";
@@ -26,6 +29,8 @@ define( [
 		} );
 	}
 
+	console.log("2. AMD");
+	
 	// for CommonJS enviroments, export everything
 	/*if ( typeof exports !== "undefined" || typeof require !== "undefined" ) 
 	{
