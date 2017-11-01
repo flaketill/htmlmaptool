@@ -2,7 +2,6 @@
 define( [	
 	"core/utils",
 	"core"
-//], function( utils, htmlmaptool  ) {
 ], function( utils, htmlmaptool  ) {	
 
 	htmlmaptool.drag_n_drop = function(attributes, options)
@@ -19,7 +18,22 @@ define( [
 
 		console.log(dropzone);
 
-		htmlmaptool.utils();
+
+		console.warn("[info] - core/drag_n_drop --> Test utils functions");
+		htmlmaptool.utils.check();
+		htmlmaptool.utils.check('block',"n");
+		htmlmaptool.utils.check('blocks',"n");
+
+		var data = {};
+		var utilsrsync = htmlmaptool.utils.check;
+
+		htmlmaptool.utils.check = function(method, options) {
+			options.data;
+			utilsrsync(method, options);	
+		};
+		//htmlmaptool.utils();
+		//htmlmaptool.utils.get();
+		//htmlmaptool.utils.db();
 
 		/* events fired on the drop targets */
 

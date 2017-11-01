@@ -33,6 +33,9 @@ add-dep-develop:
 	#pm install grunt-contrib-uglify --save-dev
 	npm install --save-dev fsevents
 
+run:
+	grunt watch:scripts
+	
 dist-prod:
 	#I prefer use grunt requirejs
 	#
