@@ -17,7 +17,9 @@
 ~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~*/
 
 define( [
-	"core"
+	"core",
+	"core/utils",
+	"core/drag_n_drop"
 	//"test",
 	//"amd",
 	//"global",
@@ -28,7 +30,7 @@ define( [
 
 	//(function(windows, htmlmaptool){
 
-		console.log(htmlmaptool);
+		//console.log(htmlmaptool);
 		
 		return htmlmaptool;
 

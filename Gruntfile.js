@@ -45,11 +45,17 @@ module.exports = function(grunt) {
           //exclude: ['test'],
           //mainConfigFile: "./main.js",
           //name: "almond", //using almond plugin to generate deliverable
-          include: ['core','exports/amd','exports/global','core/test','htmlmaptool'],
+          include: ['core',
+          'exports/amd',
+          'exports/global',
+          'core/test',
+          'core/utils',
+          'core/drag_n_drop',
+          'htmlmaptool'],
           insertRequire: ['htmlmaptool'],
           out: 'dist/<%= pkg.name %>.js',
-          //optimize: 'none', // none / uglify2
-          optimize: "uglify2",
+          optimize: 'none', // none / uglify2
+          //optimize: "uglify2",
           /*uglify2: {
             output: {
               beautify: true
@@ -173,9 +179,19 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ['<%= jshint.files %>'],
-      tasks: ['jshint', 'qunit']
+      /*files: ['<%= jshint.files %>'],
+      tasks: ['jshint', 'qunit'],*/
+      scripts: {
+        files: ['src/**/*.js'],
+        tasks: ['build']
+      }
     }
+  });
+
+  // On watch events configure
+  grunt.event.on('watch', function(action, filepath) {
+    //grunt.config('jshint.all.src', filepath);
+    console.log("ok");
   });
 
   // Load grunt tasks from NPM packages

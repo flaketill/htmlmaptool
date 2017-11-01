@@ -8,7 +8,9 @@
   		<meta name="description" content="Javascript, Jquery, Backbone, CSS 2.1 y 3, XHTML Strict v1.0, Backbone, requirejs " />
   		<meta name="author" content="Ing. Armando Ibarra" />
   		<meta name="keywords" content="Humans txt, Development" /> 
-  		<meta name="title" content="Aplicaci&oacute;n Web by flaketill" />  		
+  		<meta name="title" content="Aplicaci&oacute;n Web by flaketill" />
+
+  		<link rel="stylesheet" href="src/assets/css/main.css">
 
 	</head>
 	<body>
@@ -17,21 +19,220 @@
 		 
 		<h1>Test with Backbone.js + RequireJS + htmlmaptool • MVC with Javascirpt</h1>
 
+		<div class="ui basic large modal">
+		  <i class="close icon"></i>
+		  <div class="header">
+		    Registration Form
+		  </div>
+		  <div class="content">
+		    <!-- Form tag needs to be used instead of standard div as it supports form reset -->
+			<form class="ui form">
+				<div class="ui piled segment">	
+				  <p style="color:black;">Your tickets are all ready to print. Where would you like to send a receipt?</p>
+				  <div class="fields">
+					<div class="ten wide field">
+					  <label>E-mail</label>
+					  <input type="text" name="email">
+					</div>
+					<div class="six wide field">
+					  <label>Additional E-mail</label>
+					  <input type="text" name="cc-email">
+					</div>
+				  </div>
+				  <!-- Below tag is the placeholder/container for the error messages -->
+				  <div class="ui error message"></div>
+				</div>
+			</form>
+		  </div>
+		  <div class="actions">
+		    <div class="two fluid ui inverted buttons">
+		      <div class="ui cancel red basic inverted button">
+		        <i class="remove icon"></i>
+		        Cancel
+		      </div>
+		      <div class="ui ok green basic inverted button">
+		        <i class="checkmark icon"></i>
+		        Submit
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+
+		<div id="wrapper_body">  
+		<div id="wrapper">
+		    <header id="header">
+		        <nav id="nav" class="clearfix">
+		            <ul>
+		                <li id="save"><a href="#">Guardar</a></li>
+		                <li id="load"><a href="#">Cargar</a></li>
+		                <li id="edit"><a href="#">editar</a></li>
+		                <li id="from_html"><a href="#">Desde html</a></li>            
+		                <li id="rectangle"><a href="#">rect&aacute;nglulo</a></li>
+		                <li id="circle"><a href="#">c&iacute;rculo</a></li>
+		                <li id="polygon"><a href="#">pol&iacute;gono</a></li>                
+		                
+		                <li id="preview"><a href="#">preview</a></li>
+		                <li id="clear"><a href="#">Borrar</a></li>
+		                <li id="new_image"><a href="#">new image</a></li>
+		                <li id="show_help"><a href="#">?</a></li>
+
+		                <li id="to_html"><a href="#">Siguiente</a></li>
+		            </ul>
+		        </nav>
+		        <div id="coords"></div>
+		        <div id="debug"></div>
+		    </header>
+		    <div id="image_wrapper">
+		        <div id="image">
+		            <img src="" alt="#" id="img" />
+		            <svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny" id="svg"></svg>
+		        </div>
+		    </div>
+		</div>
+
+		<div>
+		    <li id="btn_get_map"><a href="#">Siguiente</a></li>
+		</div>
+		<!-- For html image map code -->
+		<div id="code">
+		    <span class="close_button" title="close"></span>
+		    <div id="code_content"></div>
+		</div>
+
+		<!-- Edit details block -->
+		<form id="edit_details">
+		    <h5>Attributes</h5>
+		    <span class="close_button" title="close"></span>
+		    <p>
+		        <label for="href_attr">href</label>
+		        <input type="text" id="href_attr" />
+		    </p>
+		    <p>
+		        <label for="alt_attr">alt</label>
+		        <input type="text" id="alt_attr" />
+		    </p>
+		    <p>
+		        <label for="title_attr">title</label>
+		        <input type="text" id="title_attr" />
+		    </p>
+		    <button id="save_details">Save</button>
+		</form>
+
+		<!-- From html block -->
+		<div id="from_html_wrapper">
+		    <form id="from_html_form">
+		        <h5>Loading areas</h5>
+		        <span class="close_button" title="close"></span>
+		        <p>
+		            <label for="code_input">Enter your html code:</label>
+		            <textarea id="code_input"></textarea>
+		        </p>
+		        <button id="load_code_button">Load</button>
+		    </form>
+		</div>
+		  
+		<!-- Get image form -->
+		<div id="get_image_wrapper">
+		    <div id="get_image">
+		        <span title="close" class="close_button"></span>
+		        <div id="loading">Loading</div>
+
+		        <div id="file_reader_support">
+		          <!-- Drag an drop image-->
+		            <label>Arrastrar y soltar la imagen desde su computadora </label>
+		            <p><a href="https://www.youtube.com/watch?v=4F_VonQ_Q8U">m&aacute;s Información</a></p>
+		            <div id="dropzone">
+		                <span class="clear_button" title="clear">x</span> 
+		                <img src="" alt="preview" id="sm_img" />
+		            </div>
+		            <b>or</b>
+		        </div>
+		        <label for="url">type a url</label>
+		        <span id="url_wrapper">
+		            <span class="clear_button" title="clear">x</span>
+		            <input type="text" id="url" />
+		        </span>
+		        <button id="button">OK</button>
+		    </div>
+		</div>
+
+		<!-- Help block -->
+		<div id="overlay"></div>
+		<div id="help">
+		    <span class="close_button" title="close"></span>
+		    <div class="txt">
+		        <section>
+		            <h2>Main</h2>
+		            <p><span class="key">F5</span> &mdash; reload the page and display the form for loading image again</p>
+		            <p><span class="key">S</span> &mdash; save map params in localStorage</p>
+		        </section>
+		        <section>
+		            <h2>Drawing mode (rectangle / circle / polygon)</h2>
+		            <p><span class="key">ENTER</span> &mdash; stop polygon drawing (or click on first helper)</p>
+		            <p><span class="key">ESC</span> &mdash; cancel drawing of a new area</p>
+		            <p><span class="key">SHIFT</span> &mdash; square drawing in case of a rectangle and right angle drawing in case of a polygon</p>
+		        </section>
+		        <section>
+		            <h2>Editing mode</h2>
+		            <p><span class="key">DELETE</span> &mdash; remove a selected area</p>
+		            <p><span class="key">ESC</span> &mdash; cancel editing of a selected area</p>
+		            <p><span class="key">SHIFT</span> &mdash; edit and save proportions for rectangle</p>
+		            <p><span class="key">I</span> &mdash; edit attributes of a selected area (or dblclick on an area)</p>
+		            <p><span class="key">CTRL</span> + <span class="key">C</span> &mdash; a copy of the selected area</p>
+		            <p><span class="key">&uarr;</span> &mdash; move a selected area up</p>
+		            <p><span class="key">&darr;</span> &mdash; move a selected area down</p>
+		            <p><span class="key">&larr;</span> &mdash; move a selected area to the left</p>
+		            <p><span class="key">&rarr;</span> &mdash; move a selected area to the right</p>
+		        </section>
+		    </div>
+		    <footer>
+		        <a href="http://github.com/summerstyle/summer">Summer html image map creator 0.5</a><br />
+		        &copy; 2016 Vera Lobatcheva<br />
+		        MIT License
+		    </footer>
+		</div>
+
+
+		</div>
+		</div>
+
+		</div>
 		<!--RequireJs to load libs-->
   		<!--<script type="text/javascript" data-main="main" src="node_modules/requirejs/require.js"></script>-->
 
 		<!-- load Htmlmaptool lib-->
+		
+		<!--<script type="text/javascript" src="bower_components/summer/summerHTMLImageMapCreator.js"></script>-->
+
 		<script type="text/javascript" src="dist/htmlmaptool.js"></script>
+
 		<script type="text/javascript">
 			// Initialize the lib
 			
-			console.log("[info] - index.html -+ Initialize Javascirpt Library");
-			console.log("[info] - index.html -+ htmlmaptool: " + typeof htmlmaptool);
+			//console.log("[info] - index.html -+ Initialize Javascirpt Library");
+			//console.log("[info] - index.html -+ htmlmaptool: " + typeof htmlmaptool);
 			console.log("[info] - index.html -+ The version are: " + htmlmaptool.version);
 			
 			var app = htmlmaptool;
 			app.test();
 			app.test2();
+
+			var data_drag = {
+				block: 'get_image_wrapper',
+				close_button: '.close_button',
+				loading_indicator: 'loading',
+				button: 'button',
+				filename: null,
+				last_changed: null,
+				dropzone: 'dropzone',
+				dropzone_clear_button: '.clear_button',
+				sm_img: 'sm_img'
+			};
+
+			//app.drag_n_drop();
+
+			console.log("[info] - index.html -+ The version are: " + app.drag_n_drop(data_drag));
 
 		</script>
 

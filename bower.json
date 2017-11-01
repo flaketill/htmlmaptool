@@ -1,0 +1,30 @@
+{
+  "name": "htmlmaptool",
+  "version": "0.0.1",
+  "homepage": "https://github.com/flaketill/htmlmaptool",
+  "authors": [
+    "Armando Ibarra"
+  ],
+  "description": "Html map tool build on javascript to help map a image on html with clickable areas to html5",
+  "keywords": [
+    "mvc",
+    "requierejs"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "jquery": ">=3.2.1",
+    "jquery-ui": ">=1.12.1",
+    "jQuery-rwdImageMaps": "*",
+    "PrintArea": "RitsC/PrintArea#^2.4.1",
+    "image-map-resizer": "davidjbradshaw/image-map-resizer#^1.0.3",
+    "ckeditor": "^4.7.3",
+    "summer": "summerstyle/summer"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

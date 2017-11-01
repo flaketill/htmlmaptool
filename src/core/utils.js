@@ -5,40 +5,16 @@ define( [
 ], function( htmlmaptool ) {
 
 
-	console.log("5. utils");
+	console.log("[info] - core/utils --> 6. utils");
 
-	console.log(htmlmaptool);
+	//console.log(htmlmaptool);
 
-	return htmlmaptool;
-	/*
+	//Nested namespaces
 
-	var utils = htmlmaptool.utils = htmlmaptool.utils || {};
+	var that = this,
+		utils = that.utils2 = {};
 
-	htmlmaptool.testing = function() {
-
-		console.log("test funcion");
-		//return this;
-	};
-
-	utils.init = function() {
-
-		console.log("test utils init");
-		return this;
-  	};
-	
-	htmlmaptool.utils = function() {
-
-		console.log("test utils");
-		
-		return this;
-	};
-
-	var utils2 = htmlmaptool.utils2 = function(attributes, options) 
-	{
-		var attrs = attributes || {};
-		options || (options = {});
-		//this.apply(this, arguments);
-  	};
-  	*/
+	//var utils = that.utils = {};
+	htmlmaptool.utils = that.utils || {};  
 
 } );	

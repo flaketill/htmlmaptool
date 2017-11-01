@@ -7,7 +7,7 @@ define( [
 	console.log("4. Test");
 
 	//console.log(core);
-	console.log(htmlmaptool);
+	//console.log(htmlmaptool);
 
 	//var htmlmaptool = core.htmlmaptool;
 

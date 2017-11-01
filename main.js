@@ -19,6 +19,7 @@ require.config({
 		'amd': ['exports/amd'],
 		'test': ['core/test'],
 		'utils': ['core/utils'],
+		'drag_n_drop': ['core/drag_n_drop'],
 		'support': ['var/support'],
 		'support1': ['core/support'],
 		'common': ['common'],
@@ -53,11 +54,16 @@ require.config({
 			exports: 'test',
 			//deps:['htmlmaptool','core']
 			deps:['htmlmaptool','core']
-		}/*,
+		},
 		utils: {
 			exports: 'utils'
 			//deps:['htmlmaptool','core']
-		}*/
+		},
+		drag_n_drop: {
+			exports: 'drag_n_drop',
+			deps:['htmlmaptool','core','utils']
+			//deps:['htmlmaptool','core']
+		}
 		/*,
 		core: {
 			deps: ['amd','support','support1','common','sessionstorage','global','htmlmaptool']
