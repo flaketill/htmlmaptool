@@ -80,6 +80,7 @@ var core, exports_amd, htmlmaptool, exports_global, core_test, utils, core_utils
     // -------------
     htmlmaptool.VERBOSE = false;
     console.log('1. Core');
+    var core = htmlmaptool.core = {};
     return htmlmaptool;  //}).call(this);
   }();
   exports_amd = function (htmlmaptool) {
@@ -167,7 +168,7 @@ var core, exports_amd, htmlmaptool, exports_global, core_test, utils, core_utils
     console.log('[info2] - core/utils --> 6. utils');
     //console.log(htmlmaptool);
     //Nested namespaces
-    var that = this, core_test, utils = htmlmaptool.utils = {};
+    var that = this, core_test, utils = htmlmaptool.core.utils = {}, utils = htmlmaptool.utils = {};
     // An optional error callback with a fallback error 
     var wrapError = function (options) {
       var error = options.error;
@@ -330,21 +331,24 @@ var core, exports_amd, htmlmaptool, exports_global, core_test, utils, core_utils
         console.log('get method' + data);
       }  //this.initialize.apply(this, arguments);
     };
-    utils.on = function (name, callback, context) {
-      console.warn('[info2] - core/utils --> utils testing callback');
-      return this;
-    };
-    core_test = function (htmlmaptool) {
-      htmlmaptool.test = function () {
-        console.log('[info22] - core/test --> test function - update  - 2017-10-26');
-        return this;
-      };
-    }(core);
-    htmlmaptool = function () {
-      return htmlmaptool;
-    }();
+    /*
+    	utils.on = function(name, callback, context) {
+    		console.warn("[info2] - core/utils --> utils testing callback");
+    		return this;
+        };
+    
+        core_test = function (htmlmaptool) {
+        	htmlmaptool.test = function () {
+        		console.log('[info22] - core/test --> test function - update  - 2017-10-26');
+        		return this;
+        };
+        }(core);
+    
+        htmlmaptool = function () {
+            return htmlmaptool;
+        }();*/
     //var
-    htmlmaptool.testget = htmlmaptool.prototype = {
+    htmlmaptool.core.utils = htmlmaptool.prototype = {
       test: that,
       //A get method
       get: function () {
@@ -354,6 +358,39 @@ var core, exports_amd, htmlmaptool, exports_global, core_test, utils, core_utils
       set: function (num) {
         console.log('[info22] - core/utils --> htmlmaptool.testget.set(' + num + '")   - 2017-10-31');
         return this;
+      },
+      /**
+      * Returns offset from html page top-left corner for some element
+        *
+        * @param node {HTMLElement} - html element
+        * @returns {Object} - object with offsets, e.g. {x: 100, y: 200}
+        */
+      getOffset: function (node) {
+        var boxCoords = node.getBoundingClientRect();
+        return {
+          x: Math.round(boxCoords.left + window.pageXOffset),
+          y: Math.round(boxCoords.top + window.pageYOffset)
+        };
+      },
+      /**
+       * Returns correct coordinates (incl. offsets)
+       *
+       * @param x {number} - x-coordinate
+       * @param y {number} - y-coordinate
+       * @returns {Object} - object with recalculated coordinates, e.g. {x: 100, y: 200}
+       */
+      /*getRightCoords : function(x, y) {
+          return {
+              x : x - app.getOffset('x'),
+              y : y - app.getOffset('y')
+          };
+      },*/
+      /**
+       * TODO: will use same method of app.js
+       * @deprecated
+       */
+      id: function (str) {
+        return document.getElementById(str);
       }
     };
     return htmlmaptool;

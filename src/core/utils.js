@@ -17,6 +17,7 @@ define( 'utils', [
 
 	var that = this,
 		core_test,
+		utils = htmlmaptool.core.utils = {},
 		utils = htmlmaptool.utils = {};
 
 	// An optional error callback with a fallback error 
@@ -42,7 +43,7 @@ define( 'utils', [
     */
 
     /* Utilities */
-
+  
 	htmlmaptool.utils = function() {
 		console.warn("[info] - core/utils --> public method :: Utils testing");
 
@@ -238,6 +239,7 @@ define( 'utils', [
 		//this.initialize.apply(this, arguments);
 	});
 	
+	/*
 	utils.on = function(name, callback, context) {
 		console.warn("[info] - core/utils --> utils testing callback");
 		return this;
@@ -252,12 +254,12 @@ define( 'utils', [
 
     htmlmaptool = function () {
         return htmlmaptool;
-    }();
+    }();*/
 
     
     //var
 
-    htmlmaptool.testget = htmlmaptool.prototype = {
+    htmlmaptool.core.utils = htmlmaptool.prototype = {
     	test: that,
     	//A get method
     	get: function() {
@@ -270,7 +272,42 @@ define( 'utils', [
 
     		console.log('[info2] - core/utils --> htmlmaptool.testget.set('+ num + '")   - 2017-10-31');
     		return this;
-    	}
+    	},
+    	/**
+    		* Returns offset from html page top-left corner for some element
+        *
+        * @param node {HTMLElement} - html element
+        * @returns {Object} - object with offsets, e.g. {x: 100, y: 200}
+        */
+      getOffset : function(node) {
+            var boxCoords = node.getBoundingClientRect();
+        
+            return {
+                x : Math.round(boxCoords.left + window.pageXOffset),
+                y : Math.round(boxCoords.top + window.pageYOffset)
+            };
+      },        
+        /**
+         * Returns correct coordinates (incl. offsets)
+         *
+         * @param x {number} - x-coordinate
+         * @param y {number} - y-coordinate
+         * @returns {Object} - object with recalculated coordinates, e.g. {x: 100, y: 200}
+         */ 
+        /*getRightCoords : function(x, y) {
+            return {
+                x : x - app.getOffset('x'),
+                y : y - app.getOffset('y')
+            };
+        },*/
+        
+        /**
+         * TODO: will use same method of app.js
+         * @deprecated
+         */
+        id : function (str) {
+            return document.getElementById(str);
+        }
     };
 
     return htmlmaptool;

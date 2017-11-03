@@ -235,8 +235,12 @@
 			console.log("[info] - index.html -+ The version are: " + app.drag_n_drop(data_drag));
 			//htmlmaptool.utils();.
 			htmlmaptool.utils.db();
-			htmlmaptool.testget.set("5");
-			htmlmaptool.testget.get();
+			htmlmaptool.utils.set("5");
+			htmlmaptool.utils.get();
+
+			var id = htmlmaptool.utils.id("get_image_wrapper");
+
+			console.log(id);
 
 		</script>
 

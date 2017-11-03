@@ -84,6 +84,8 @@ define([
 
 		console.log("1. Core");
 
+		var core = htmlmaptool.core = {};
+
 		return htmlmaptool;
 
 	//}).call(this);
