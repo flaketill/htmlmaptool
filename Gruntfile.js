@@ -50,6 +50,7 @@ module.exports = function(grunt) {
           'exports/global',
           'core/test',
           'core/utils',
+          'core/dropzone',
           'core/drag_n_drop',
           'htmlmaptool'],
           insertRequire: ['htmlmaptool'],

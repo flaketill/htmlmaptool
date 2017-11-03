@@ -212,17 +212,19 @@
 			
 			//console.log("[info] - index.html -+ Initialize Javascirpt Library");
 			//console.log("[info] - index.html -+ htmlmaptool: " + typeof htmlmaptool);
-			console.log("[info] - index.html -+ The version are: " + htmlmaptool.version);
+			//console.log("[info] - index.html -+ The version are: " + htmlmaptool.version);
 			
 			var app = htmlmaptool;
-			app.test();
-			app.test2();
+			//app.test();
+			//app.test2();
 
 			var data_drag = {
 				block: 'get_image_wrapper',
+				//block: null,
 				close_button: '.close_button',
 				loading_indicator: 'loading',
 				button: 'button',
+				//button: null,
 				filename: null,
 				last_changed: null,
 				dropzone: 'dropzone',
@@ -232,15 +234,25 @@
 
 			//app.drag_n_drop();
 
-			console.log("[info] - index.html -+ The version are: " + app.drag_n_drop(data_drag));
+			//console.log("[info] - index.html -+ The version are: " + app.drag_n_drop(data_drag));
+			//console.log("[info] - index.html - Drag and Drop test: " + typeof app.drag_n_drop());
+
+			//if (app.drag_n_drop()) {
+			if (app.drag_n_drop(data_drag)) {
+				console.log("[info] - index.html - Drag and Drop test: OK");
+			}else{
+				console.log("[info] - index.html - Drag and Drop test: ERROR");
+			}
+			//app.drag_n_drop(data_drag);
+
 			//htmlmaptool.utils();.
-			htmlmaptool.utils.db();
-			htmlmaptool.utils.set("5");
-			htmlmaptool.utils.get();
+			//htmlmaptool.utils.db();
+			//htmlmaptool.utils.set("5");
+			//htmlmaptool.utils.get();
 
-			var id = htmlmaptool.utils.id("get_image_wrapper");
+			//var id = htmlmaptool.utils.id("get_image_wrapper");
 
-			console.log(id);
+			//console.log(id);
 
 		</script>
 

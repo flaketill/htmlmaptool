@@ -43,6 +43,155 @@ define( 'utils', [
     */
 
     /* Utilities */
+
+    htmlmaptool.core.utils = htmlmaptool.prototype = {
+    	test: that,
+    	//A get method
+    	get: function() {
+
+    		console.log('[info2] - core/utils --> htmlmaptool.testget.get()   - 2017-10-31');
+
+    		return this;
+    	},
+    	set: function( num ) {
+
+    		console.log('[info2] - core/utils --> htmlmaptool.testget.set('+ num + '")   - 2017-10-31');
+    		return this;
+    	},
+    	/**
+    		* Returns offset from html page top-left corner for some element
+        *
+        * @param node {HTMLElement} - html element
+        * @returns {Object} - object with offsets, e.g. {x: 100, y: 200}
+        */
+      	getOffset : function(node) {
+            var boxCoords = node.getBoundingClientRect();
+        
+            return {
+                x : Math.round(boxCoords.left + window.pageXOffset),
+                y : Math.round(boxCoords.top + window.pageYOffset)
+            };
+      	},        
+        /**
+         * Returns correct coordinates (incl. offsets)
+         *
+         * @param x {number} - x-coordinate
+         * @param y {number} - y-coordinate
+         * @returns {Object} - object with recalculated coordinates, e.g. {x: 100, y: 200}
+         */ 
+        getRightCoords : function(x, y) {
+            return {
+                x : x - app.getOffset('x'),
+                y : y - app.getOffset('y')
+            };
+        },
+        
+        /**
+         * TODO: will use same method of app.js
+         * @deprecated
+         */
+        id : function (str) {
+            return document.getElementById(str);
+        },
+
+        /**
+         * TODO: will use same method of app.js
+         * @deprecated
+         */
+        hide : function(node) {
+            node.style.display = 'none';
+            
+            return this;
+        },
+        
+        /**
+         * TODO: will use same method of app.js
+         * @deprecated
+         */
+        show : function(node) {
+            node.style.display = 'block';
+            
+            return this;
+        },
+        
+        /**
+         * Escape < and > (for code output)
+         *
+         * @param str {string} - a string with < and >
+         * @returns {string} - a string with escaped < and >
+         */
+        encode : function(str) {
+            return str.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        },
+        
+        /**
+         * TODO: will use same method of app.js
+         * @deprecated
+         */
+        foreach : function(arr, func) {
+            for(var i = 0, count = arr.length; i < count; i++) {
+                func(arr[i], i);
+            }
+        },
+        
+        /**
+         * TODO: will use same method of app.js
+         * @deprecated
+         */
+        foreachReverse : function(arr, func) {
+            for(var i = arr.length - 1; i >= 0; i--) {
+                func(arr[i], i);
+            }
+        },
+        
+        /**
+         * Display debug info to some block
+         */
+        debug : (function() {
+            var output = document.getElementById('debug');
+            
+            return function() {
+                output.innerHTML = [].join.call(arguments, ' ');
+            };
+        })(),
+        
+        /**
+         * TODO: will use same method of app.js
+         * @deprecated
+         */
+        stopEvent : function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            
+            return this;
+        },
+        
+        /**
+         * TODO: will use same method of app.js
+         * @deprecated
+         */
+        extend : function(obj, options) {
+            var target = {};
+
+            for (var name in obj) {
+                if(obj.hasOwnProperty(name)) {
+                    target[name] = options[name] ? options[name] : obj[name];
+                }
+            }
+
+            return target;
+        },
+        
+        inherits : (function() {
+            var F = function() {};
+            
+            return function(Child, Parent) {
+                F.prototype = Parent.prototype;
+                Child.prototype = new F();
+                Child.prototype.constructor = Child;
+            };
+        })()
+    };
   
 	htmlmaptool.utils = function() {
 		console.warn("[info] - core/utils --> public method :: Utils testing");
@@ -52,6 +201,20 @@ define( 'utils', [
 		//console.log(that);
 
 		return this;
+	};
+
+	htmlmaptool.utils.set = function(method, options) {
+		return this;
+	};
+
+	htmlmaptool.utils.get = function(method, options) {
+		return this;
+	};
+
+
+	//Below we expose the math object as utilities to our html tags, as well as the client-side
+	htmlmaptool.utils.id = function(id) {
+		return htmlmaptool.core.utils.id(id);
 	};
 
 	// Map from utils implementation
@@ -255,60 +418,6 @@ define( 'utils', [
     htmlmaptool = function () {
         return htmlmaptool;
     }();*/
-
-    
-    //var
-
-    htmlmaptool.core.utils = htmlmaptool.prototype = {
-    	test: that,
-    	//A get method
-    	get: function() {
-
-    		console.log('[info2] - core/utils --> htmlmaptool.testget.get()   - 2017-10-31');
-
-    		return this;
-    	},
-    	set: function( num ) {
-
-    		console.log('[info2] - core/utils --> htmlmaptool.testget.set('+ num + '")   - 2017-10-31');
-    		return this;
-    	},
-    	/**
-    		* Returns offset from html page top-left corner for some element
-        *
-        * @param node {HTMLElement} - html element
-        * @returns {Object} - object with offsets, e.g. {x: 100, y: 200}
-        */
-      getOffset : function(node) {
-            var boxCoords = node.getBoundingClientRect();
-        
-            return {
-                x : Math.round(boxCoords.left + window.pageXOffset),
-                y : Math.round(boxCoords.top + window.pageYOffset)
-            };
-      },        
-        /**
-         * Returns correct coordinates (incl. offsets)
-         *
-         * @param x {number} - x-coordinate
-         * @param y {number} - y-coordinate
-         * @returns {Object} - object with recalculated coordinates, e.g. {x: 100, y: 200}
-         */ 
-        /*getRightCoords : function(x, y) {
-            return {
-                x : x - app.getOffset('x'),
-                y : y - app.getOffset('y')
-            };
-        },*/
-        
-        /**
-         * TODO: will use same method of app.js
-         * @deprecated
-         */
-        id : function (str) {
-            return document.getElementById(str);
-        }
-    };
 
     return htmlmaptool;
 
